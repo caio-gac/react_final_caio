@@ -35,6 +35,16 @@ const HomeBola = styled.div`
     
 `;
 
+const ClockDiv = styled.div`
+    
+    margin-right: 1vh;
+`;
+
+const WeatherDiv = styled.div`
+    
+    margin-right: 1vh;
+`;
+
 const HomeH1 = styled.h1`
     font-family: 'Mark Pro';
     font-style: normal;
@@ -82,8 +92,13 @@ export default function Home() {
         <main>
             <Content>
                 <LogoDiv1><img src={Logo} alt="" /></LogoDiv1>
-                <Clock />
-                <Weather/>
+                <ClockDiv>
+                    <Clock />
+                </ClockDiv>
+                <WeatherDiv>
+                    <Weather/>
+                </WeatherDiv>
+
 
                 <HomeTextDiv>
                     <HomeH2>Our Mission is</HomeH2>
