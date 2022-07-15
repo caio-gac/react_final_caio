@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import Counter from './counter';
 
 const Content = styled.div`
     display: flex;
@@ -15,10 +15,6 @@ const Content = styled.div`
     background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
 
 `;
-
-// const FooterDiv = styled.div`
-
-// `;
 
 const FooterH1 = styled.h1`
     font-family: 'Mark Pro';
@@ -45,48 +41,6 @@ const FooterCounter = styled.div`
     flex-direction: row;
     height:100%;
     width:109px;
-`;
-
-const CounterH1 = styled.h1`
-    margin-top: 2vh;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    text-align: right;
-    color: #FFFFFF;
-    width: 109px;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-`;
-const CounterH2 = styled.h1`
-    margin-left: -4vh;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    text-align: right;
-    color: #FFFFFF;
-    width: 109px;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-`;
-
-const CounterTime = styled.h1`
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 61px;
-    /* identical to box height */
-
-    text-align: center;
-
-    /* Primária */
-
-    color: #FFFFFF;
-
 `;
 
 const FooterButtonDiv = styled.div`
@@ -147,12 +101,7 @@ export default function Footer () {
             <FooterDivisao>|</FooterDivisao>
 
             <FooterCounter>
-                <CounterH1>Aplication refreshs in </CounterH1>
-                <div>
-                    <CounterTime>600</CounterTime>
-                    <CounterH2>Seconds</CounterH2>
-                </div>
-                
+                <Counter />
             </FooterCounter>
             
 
