@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const Conteudo = styled.div`
+const Content = styled.div`
     display: flex;
     flex-direction: row;
     align-items:center;
@@ -139,7 +139,7 @@ const FooterButtonH2 = styled.h2`
 
 export default function Footer () {
     return(
-        <Conteudo>
+        <Content>
             {/* <FooterDiv> */}
             <FooterH1>
                 Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a aberta em segundo plano e abra uma nova janela para continuar a navegar.
@@ -169,6 +169,6 @@ export default function Footer () {
 
                 
             {/* </FooterDiv> */}
-        </Conteudo>
+        </Content>
     );
 }

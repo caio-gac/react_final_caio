@@ -1,21 +1,45 @@
-import React, {useState, useEffect} from 'react';
+import { format } from 'date-fns';
+import { useState } from 'react';
+import styled from 'styled-components';
+import lista from './ListaCall.json';
 
-export const DateTime = ( ) => {
-    let [date,setDate] = useState(new Date());
+const ClockContent = styled.div`
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`;
+const TimeContent = styled.div`
+font-style: normal;
+font-weight: 700;
+font-size: 9rem;
+line-height: 8rem;
+text-align: center;
+/* Secundária */
+color: #222222;
+`;
 
-    useEffect(() => {
-        let timer = setInterval(()=>
-            setDate(new Date(), 1000));
-        return function cleanup(){
-            clearInterval(timer);
-        };
-    });
-
+const DateContent = styled.div`
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+`;
+export default function Clock(){
+    const [date, setDate] = useState(new Date());
+    setInterval(()=> {
+        setDate(new Date());
+    }, 30000);
     return(
-        <div>
-            <p>{date.getHours()}:{date.getMinutes() < 10 ? ('0' + date.getMinutes()) : date.getMinutes()}</p>
-        </div>
+        <ClockContent>
+            <TimeContent>
+                <span>{format(date, 'HH')}</span>
+                <span>:</span>
+                <span>{format(date, 'mm')}</span>
+            </TimeContent>
+            <DateContent>
+                <span>{lista.diaSemana[date.getDay()]}, {date.getDate()} de {lista.meses[date.getMonth()]} de {date.getFullYear()}</span>
+            </DateContent>
+        </ClockContent>
     );
-};
-
-export default DateTime;
+}

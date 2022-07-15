@@ -2,9 +2,10 @@
 import styled from 'styled-components';
 import Footer from 'components/Footer';
 import Bola from '../../assets/bola-LogoCompasso.svg';
-import { DateTime } from 'components/DateTime';
+
 import Logo from '../../assets/LogoCompasso.png';
-const Conteudo = styled.div`
+import Clock from 'components/DateTime';
+const Content = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -79,8 +80,10 @@ const LogoDiv1 = styled.div`
 export default function Home() {
     return(
         <main>
-            <Conteudo>
+            <Content>
                 <LogoDiv1><img src={Logo} alt="" /></LogoDiv1>
+                <Clock />
+
                 <HomeTextDiv>
                     <HomeH2>Our Mission is</HomeH2>
                     <HomeH3>Nossa missão é</HomeH3>
@@ -98,7 +101,7 @@ export default function Home() {
 
                 </div>
 
-            </Conteudo>
+            </Content>
             <footer>
                 <Footer />
             </footer>
