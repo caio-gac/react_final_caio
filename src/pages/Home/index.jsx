@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import Footer from 'components/Footer';
 import Bola from '../../assets/bola-LogoCompasso.svg';
-
+import Weather from 'components/Weather';
 import Logo from '../../assets/LogoCompasso.png';
 import Clock from 'components/DateTime';
 const Content = styled.div`
@@ -83,6 +83,7 @@ export default function Home() {
             <Content>
                 <LogoDiv1><img src={Logo} alt="" /></LogoDiv1>
                 <Clock />
+                <Weather/>
 
                 <HomeTextDiv>
                     <HomeH2>Our Mission is</HomeH2>

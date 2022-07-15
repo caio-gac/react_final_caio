@@ -45,9 +45,9 @@ const DivInput3 = styled.div`
     
 `;
 
-const Icon = styled.div`
-    margin-left: 1vh;
-`;
+// const Icon = styled.div`
+//     margin-left: 1vh;
+// `;
 
 
 
