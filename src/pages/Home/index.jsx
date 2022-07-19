@@ -10,7 +10,11 @@ const Content = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    
+    background-image:url(${Bola});
+    background-position: left bottom;
+    background-size: calc(1rem*30);
+    background-repeat: no-repeat;
+    min-height: 100vh;
 `;
 
 const HomeTextDiv = styled.div`
@@ -19,19 +23,6 @@ const HomeTextDiv = styled.div`
     margin-top: 30vh;
     margin-right: 10vw;
     height: 354px;
-    
-`;
-
-const HomeBola = styled.div`
-    height: 825px;
-    width: 825px;
-    margin-top: -45vh;
-
-    border-radius: 0px;
-    justify-content: center;
-    align-items: center;
-    
-    
     
 `;
 
@@ -117,9 +108,9 @@ export default function Home() {
                     <HomeH1>that enable our clients growth</HomeH1>
                     <HomeH3>que permitam o crescimento dos nossos clientes</HomeH3>
                 </HomeTextDiv>
-                <HomeBola>
+                {/* <HomeBola>
                     <img src={Bola} alt="" />
-                </HomeBola>
+                </HomeBola> */}
                 <div>
 
                 </div>

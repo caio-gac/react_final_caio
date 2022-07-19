@@ -6,6 +6,7 @@ import InputLogin from 'components/InputLogin';
 import TextLogin from 'components/TextLogin/Index';
 import {Link} from 'react-router-dom';
 import BG from '../../assets/BG.png';
+import InputRegister from './registerInput';
 
 const Conteudo = styled.div`
     display: flex;
@@ -17,12 +18,10 @@ const Conteudo = styled.div`
     
     
 `;
-
 const MainStyled = styled.main`
     height: 100vh;
     max-height:100%;
 `;
-
 const Login = styled.div`
     display: flex;
     flex-direction: column;
@@ -32,7 +31,6 @@ const Login = styled.div`
     place-items: center;
     background: no-repeat linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
 `;
-
 const ButtonLogin = styled.button`
     background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
@@ -40,7 +38,6 @@ const ButtonLogin = styled.button`
     height: 6.205vh;
     width: 19.142vw;
 `;
-
 const BackgroundImage = styled.div`
     height = 100vh;
     width: 50vw;
@@ -48,7 +45,6 @@ const BackgroundImage = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
 `;
-
 // const BGDiv = styled.img`
 //     max-width: 100%;
 //     width: 50vw;
@@ -60,26 +56,12 @@ const LogoBG = styled.img`
     top:2vh;
     left:20vw;
 `;
-
 const DivButton = styled.div`
     margin-top: 10vh;
     margin-bottom: 17vh;
 `;
 
-import {createUserWithEmailAndPassword, onAuthStateChanged, updateCurrentUser} from 'firebase/auth';
-import {auth} from 'firebaseConfig';
-function App() {
-   
-    const logout = async()=>{    };
-
-    const [user,setUser] = useState({});
-
-    onAuthStateChanged(auth,(currentUser) => {
-        setUser(currentUser);
-    });   
-}
-
-export default function Main() {
+export default function Register() {
     return(
         <MainStyled>
             <Conteudo>
@@ -88,13 +70,11 @@ export default function Main() {
                         <TextLogin />
                     </div>
                     <div>
-                        <InputLogin ></InputLogin>
+                        <InputRegister ></InputRegister>
                     </div>
                     <DivButton>
                         <Link to={'/home'}><ButtonLogin>Continuar</ButtonLogin></Link>
                     </DivButton>
-
-
                 </Login>
                 <BackgroundImage>
                     <LogoBG src={Logo} alt="" />

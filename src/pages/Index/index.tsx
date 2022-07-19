@@ -76,11 +76,9 @@ export default function Main() {
                     <div>
                         <InputLogin></InputLogin>
                     </div>
-                    <DivButton>
-                        <Link to={'/home'}><ButtonLogin>Continuar</ButtonLogin></Link>
-                    </DivButton>
-
-
+                    {/* <DivButton> */}
+                    {/* <Link to={'/home'}><ButtonLogin >Continuar</ButtonLogin></Link> */}
+                    {/* </DivButton> */}
                 </Login>
                 <BackgroundImage>
                     <LogoBG src={Logo} alt="" />
