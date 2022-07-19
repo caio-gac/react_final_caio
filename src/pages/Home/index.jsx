@@ -19,10 +19,16 @@ const Content = styled.div`
 
 const HomeTextDiv = styled.div`
     display: flex;
-    flex-direction: column;
-    margin-top: 30vh;
-    margin-right: 10vw;
-    height: 354px;
+    flex-direction:column;
+    justify-content: center;
+    align-items:end;
+    width:100%;
+    flex-grow:1;
+    // margin-top: 3vh;
+    // margin-right: -10vw;
+    margin: 1rem;
+    
+    padding-right:10vh;
     
 `;
 
@@ -108,13 +114,6 @@ export default function Home() {
                     <HomeH1>that enable our clients growth</HomeH1>
                     <HomeH3>que permitam o crescimento dos nossos clientes</HomeH3>
                 </HomeTextDiv>
-                {/* <HomeBola>
-                    <img src={Bola} alt="" />
-                </HomeBola> */}
-                <div>
-
-                </div>
-
             </Content>
             <footer>
                 <Footer />
