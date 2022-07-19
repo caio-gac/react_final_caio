@@ -1,3 +1,4 @@
+import { logout } from 'components/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -40,9 +41,11 @@ const Timer = styled.div`
 `;
 
 export default function Counter(){
-    const [timer, setTimer] = useState(60);
+    const [timer, setTimer] = useState(600);
     const navigate = useNavigate();
-    if(timer <= 0) navigate('/');
+    if(timer <= 0){
+        logout();
+        navigate('/');}
     setTimeout(()=>{setTimer(timer - 1);}, 1000);
 
     return(

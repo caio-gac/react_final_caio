@@ -1,5 +1,5 @@
 import Cloudy from 'assets/cloudy.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const WeatherLocation = styled.span`
@@ -32,31 +32,68 @@ const WeatherDivSpan = styled.span`
 `;
 
 export default function Weather() {
-    const [degrees, setDegrees] = useState<number>(0);
-    const [city, setCity] = useState('');
-    const url = 'https://api.hgbrasil.com/weather?key=545f2b23&city_name=Joinville,SC';
+         
+    interface Results {
+        temp: number;
+        date: string;
+        currently: string;
+        cid: string;
+        city: string;
+    }
+      
+    interface Weather {
+        by: string;
+        valid_key: boolean;
+        results: Results;
+        execution_time: number;
+        from_cache: boolean;
+    }
+    const [weather, setWeather] = useState<Weather>();
 
-    function fetchWeather(url: string) {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const { main, name } = data;
-                setCity(`${name} - SC`);
-                setDegrees(Math.round(main.temp));
-            }
-            );
+    async function permissionGeo(position: GeolocationPosition){
+        // const [city, setCity] = useState('');
+        const request = await fetch( 'https://api.hgbrasil.com/weather?format=json-cors&lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=545f2b23', {mode: 'cors',
+            headers: {'Content-Type': 'Application/Json'}}
+        );
+        const json = await request.json();
+        setWeather(json);
+
+
     }
 
-    return(
-        <>
-            <WeatherContainer onLoad={() => fetchWeather(url)}>
+    async function DeniedGeo() {
+        const request = await fetch('https://api.hgbrasil.com/weather?format=json-cors&key=545f2b23', {
+            mode: 'cors',
+            headers: { 'Content-Type': 'Application/Json' }
+        });
+        const json = await request.json();
+        setWeather(json);
+    }
 
-                <WeatherLocation>{city}</WeatherLocation>
+    useEffect(()=>{
+      
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                await permissionGeo(position);
+            },async ()=> {
+                await DeniedGeo();
+            });
+        }
+    },[]);
+
+    return(
+        <WeatherContainer>
+            <div className="align-right">
+                <WeatherLocation>
+                    <h2>{weather ? `${weather.results.city.split(',')[0]} - ${weather?.results.city.split(',')[1]}` : 'Searching...'}</h2>
+                </WeatherLocation>
                 <WeatherDiv>
                     <img src={Cloudy} alt="Cloudy icon" />
-                    <WeatherDivSpan>{degrees}º</WeatherDivSpan>
-                </WeatherDiv>                
-            </WeatherContainer>
-        </>
+                    <WeatherDivSpan>
+                        <h3>{JSON.stringify(weather?.results.temp) || 0}°</h3>
+                    </WeatherDivSpan>
+                </WeatherDiv>
+            </div>
+        </WeatherContainer>
     );
 }
