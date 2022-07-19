@@ -34,7 +34,7 @@ const WeatherDivSpan = styled.span`
 export default function Weather() {
     const [degrees, setDegrees] = useState<number>(0);
     const [city, setCity] = useState('');
-    const url = 'https://api.hgbrasil.com/weather?key=545f2b23&city_name=Joinville,SP';
+    const url = 'https://api.hgbrasil.com/weather?key=545f2b23&city_name=Joinville,SC';
 
     function fetchWeather(url: string) {
         fetch(url)

@@ -45,6 +45,12 @@ const WeatherDiv = styled.div`
     margin-right: 1vh;
 `;
 
+const HeaderDiv = styled.div`
+    display:flex;
+    justify-content: space-between;
+    padding: 1.5rem 2.5rem;
+`;
+
 const HomeH1 = styled.h1`
     font-family: 'Mark Pro';
     font-style: normal;
@@ -91,14 +97,15 @@ export default function Home() {
     return(
         <main>
             <Content>
-                <LogoDiv1><img src={Logo} alt="" /></LogoDiv1>
-                <ClockDiv>
-                    <Clock />
-                </ClockDiv>
-                <WeatherDiv>
-                    <Weather/>
-                </WeatherDiv>
-
+                <HeaderDiv>
+                    <LogoDiv1><img src={Logo} alt="" /></LogoDiv1>
+                    <ClockDiv>
+                        <Clock />
+                    </ClockDiv>
+                    <WeatherDiv>
+                        <Weather/>
+                    </WeatherDiv>
+                </HeaderDiv>
 
                 <HomeTextDiv>
                     <HomeH2>Our Mission is</HomeH2>

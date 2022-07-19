@@ -1,10 +1,11 @@
 /* eslint-disable linebreak-style */
-import {ReactComponent as User} from 'assets/icon-user.svg';
-import {ReactComponent as Pass} from 'assets/icon-password.svg';
+// import {ReactComponent as User} from 'assets/icon-user.svg';
+// import {ReactComponent as Pass} from 'assets/icon-password.svg';
 import styled from 'styled-components';
-import { useState } from 'react';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
-import {auth} from 'firebaseConfig';
+import { auth } from 'firebaseConfig';
+import { useState } from 'react';
+
 
 const Input = styled.input`
     background: #26292C;
@@ -54,29 +55,34 @@ const DivInput3 = styled.div`
 
 
 
+export default function InputRegister() {
+    const [registerEmail, setRegisterEmail] = useState('') ;
+    const [registerPassword, setRegisterPassword] = useState('') ;
 
-export default function InputLogin () {
 
-    const [LoginEmail, setLoginEmail] = useState('') ;
-    const [LoginPassword, setLoginPassword] = useState('') ;
-    const login = async() =>{
+    const register = async()=>{
+
         try {
-            console.log('');
-        } catch (error) {
-            console.log(error); 
+            const user = await createUserWithEmailAndPassword(auth,registerPassword,registerEmail);
+            console.log(user);
+        } catch (error:any) {
+            console.log(error.message);
         }
+        
     };
 
-    return(
+    return( 
+    
         <DivInput>
-            <H2Input>Login</H2Input>
+            <H2Input>register</H2Input>
             <DivInput2>
                 <DivInput3>
-                    <Input type="text" placeholder='Usuário' onChange={(event) =>{setLoginEmail(event.target.value);}} /><User />
+                    <Input type="text" placeholder='Usuário' onChange={(event) =>{setRegisterEmail(event.target.value);}} />
                 </DivInput3>
                 <DivInput3>
-                    <Input type="password" name="" id="" placeholder='Senha' onChange={(event) =>{setLoginPassword(event.target.value);}}/><Pass/>
+                    <Input type="password" name="" id="" placeholder='Senha' onChange={(event) =>{setRegisterPassword(event.target.value);}}/>
                     <span></span>
+                    <button onClick={register}>Criar User</button>  
                 </DivInput3>
             </DivInput2>
         </DivInput>
