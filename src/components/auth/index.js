@@ -51,6 +51,8 @@ export const login = async (loginEmail,loginPassword) => {
 
 export const logout = async () => {
     await signOut(authValue);
+    window.location.href = '/';
+    console.log('Closed');
 };
 
     

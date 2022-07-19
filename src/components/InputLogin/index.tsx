@@ -3,12 +3,9 @@ import {ReactComponent as User} from 'assets/icon-user.svg';
 import {ReactComponent as Pass} from 'assets/icon-password.svg';
 import styled from 'styled-components';
 import { useState } from 'react';
-import { signInWithEmailAndPassword,onAuthStateChanged,signOut} from 'firebase/auth';
-import {auth} from 'firebaseConfig';
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { login } from 'components/auth';
-import Home from 'pages/Home';
 
 const Input = styled.input`
     background: #26292C;

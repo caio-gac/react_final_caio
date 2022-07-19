@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Counter from './counter';
+import { logout } from 'components/auth';
 
 const Content = styled.div`
     display: flex;
@@ -15,7 +16,6 @@ const Content = styled.div`
     background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
 
 `;
-
 const FooterH1 = styled.h1`
     font-family: 'Mark Pro';
     font-style: normal;
@@ -29,20 +29,17 @@ const FooterH1 = styled.h1`
     width: 541px;
     height: 58px;
 `;
-
 const FooterDivisao = styled.a`
     left: 35px;
     color: #FFFFFF;
     font-size:61px;
 `;
-
 const FooterCounter = styled.div`
     display: flex;
     flex-direction: row;
     height:100%;
     width:109px;
 `;
-
 const FooterButtonDiv = styled.div`
     display: flex;
     flex-direction: row;
@@ -50,7 +47,6 @@ const FooterButtonDiv = styled.div`
     align-items: center;
     justify-content: center;
 `;
-
 const FooterButtonContinue = styled.div`
     width: 131px;
     height: 100%;
@@ -59,12 +55,10 @@ const FooterButtonContinue = styled.div`
     place-content: center;
     
 `;
-
 const FooterButtonLogout = styled.div`
     width: 131px;
     height: 100%;
 `;
-
 const FooterButtonH1 = styled.h1`
     margin-top: 30%;
     margin-left: 10%;
@@ -77,7 +71,6 @@ const FooterButtonH1 = styled.h1`
 
     color: #C13216;
 `;
-
 const FooterButtonH2 = styled.h2`
     margin-top: 30%;
     margin-left: 30%;
@@ -112,7 +105,8 @@ export default function Footer () {
                     </a>
                 </FooterButtonContinue>
                 <FooterButtonLogout>
-                    <FooterButtonH2>Logout</FooterButtonH2>
+                    
+                    <FooterButtonH2 onClick={logout}>Logout</FooterButtonH2>
                 </FooterButtonLogout>
             </FooterButtonDiv>
 

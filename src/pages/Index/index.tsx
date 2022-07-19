@@ -8,9 +8,9 @@ import BG from '../../assets/BG.png';
 
 const Conteudo = styled.div`
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    height: 100vh;
+    // flex-direction: row;
+    // flex-wrap: nowrap;
+    min-height: 100vh;
     max-height:100%;
     max-width:100vw;
     
@@ -76,9 +76,6 @@ export default function Main() {
                     <div>
                         <InputLogin></InputLogin>
                     </div>
-                    {/* <DivButton> */}
-                    {/* <Link to={'/home'}><ButtonLogin >Continuar</ButtonLogin></Link> */}
-                    {/* </DivButton> */}
                 </Login>
                 <BackgroundImage>
                     <LogoBG src={Logo} alt="" />
