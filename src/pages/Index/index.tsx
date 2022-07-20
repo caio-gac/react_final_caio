@@ -60,11 +60,6 @@ const LogoBG = styled.img`
     left:20vw;
 `;
 
-const DivButton = styled.div`
-    margin-top: 10vh;
-    margin-bottom: 17vh;
-`;
-
 export default function Main() {
     return(
         <MainStyled>

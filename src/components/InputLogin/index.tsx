@@ -49,7 +49,12 @@ const DivInput3 = styled.div`
     align-items: center;
     height: 5.557vh;
     width: 19.142vw;
-    
+    // input:focus{
+    //     svg{
+    //         position:relative;
+    //         left:-10vh;
+    //     }
+    // }
 `;
 
 const DivButton = styled.div`
@@ -75,9 +80,20 @@ const SignUp = styled.div`
     text-decoration: none;
 `;
 
+const IconWrapper = styled.div<{isEditing:boolean}>`
+    position:relative;
+    left: ${props => props.isEditing ? '-2vw': '1vw'}
+    
+`;
+
 
 
 export default function InputLogin () {
+
+    const [isEditing,setIsEditing] = useState(false);
+    function handleFocus() {
+        setIsEditing ((isEditing) => !isEditing); 
+    }
 
     const [LoginEmail, setLoginEmail] = useState('') ;
     const [LoginPassword, setLoginPassword] = useState('') ;
@@ -114,11 +130,14 @@ export default function InputLogin () {
             <H2Input>Login</H2Input>
             <DivInput2>
                 <DivInput3>
-                    <Input type="text" placeholder='Usuário' onChange={(event) =>{setLoginEmail(event.target.value);}} /><User />
+                    <Input type="text" placeholder='Usuário' onBlur={handleFocus} onFocus={handleFocus} onChange={(event) =>{setLoginEmail(event.target.value);}}/>
+                    <IconWrapper isEditing={isEditing}> <User /></IconWrapper>
                 </DivInput3>
                 <DivInput3>
-                    <Input type="password" name="" id="" placeholder='Senha' onChange={(event) =>{setLoginPassword(event.target.value);}}/><Pass/>
+                    <Input type="password" name="" id="" placeholder='Senha'  onBlur={handleFocus} onFocus={handleFocus} onChange={(event) =>{setLoginPassword(event.target.value);}} />
+                    <IconWrapper isEditing={isEditing}> <Pass/></IconWrapper>
                 </DivInput3>
+                
                 {errorMessage && <ErrorDiv className='error'>{errorMessage}</ErrorDiv>}
 
                 <Link to={'/Register'} style={{textDecoration: 'none'}}><SignUp>Create account ?</SignUp></Link>

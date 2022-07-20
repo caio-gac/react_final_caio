@@ -68,14 +68,18 @@ const DivButton = styled.div`
 export default function InputRegister() {
     const [registerEmail, setRegisterEmail] = useState('') ;
     const [registerPassword, setRegisterPassword] = useState('') ;
-
+    const [msgError, setMsgError] = useState('');
     async function registerSubmit(event:any) {
         event?.preventDefault();
-        register(registerEmail,registerPassword);
         // if (await register(registerEmail,registerPassword)) {
         //     console.log('certo');
         //     window.location.href = '/home';
         // }
+        try {
+            await register(registerEmail,registerPassword);
+        } catch (error:any) {
+            setMsgError(error.code);
+        }
     }
 
     return( 
@@ -84,13 +88,12 @@ export default function InputRegister() {
             <H2Input>register</H2Input>
             <DivInput2>
                 <DivInput3>
-                    <Input type="text" placeholder='Usuário' onChange={(event) =>{setRegisterEmail(event.target.value);}} />
+                    <Input required type="text" placeholder='Usuário' onChange={(event) =>{setRegisterEmail(event.target.value);}} />
                 </DivInput3>
                 <DivInput3>
-                    <Input type="password" name="" id="" placeholder='Senha' onChange={(event) =>{setRegisterPassword(event.target.value);}}/>
-                    <span></span>
-                    
+                    <Input required type="password" name="" id="" placeholder='Senha' onChange={(event) =>{setRegisterPassword(event.target.value);}}/>
                 </DivInput3>
+                {msgError && <span>{msgError}</span>}
                 <DivButton>
                     <ButtonReg onClick={registerSubmit}>Criar User</ButtonReg>
                 </DivButton> 
