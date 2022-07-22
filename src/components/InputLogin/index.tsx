@@ -17,7 +17,10 @@ const Input = styled.input`
     text-color: #FFFFFF;
     padding-left: 12px;
     color:white;
-    
+    @media screen and (max-width: 768px){
+		width:60vw;
+	}
+      
 `;
 
 const DivInput = styled.div`
@@ -26,6 +29,9 @@ const DivInput = styled.div`
     row-gap: 2.5vh;
     height: 213px;
     margin-bottom:20vh;
+    @media screen and (max-width: 768px){
+		width:100vw;
+	}
 `;
 
 const H2Input = styled.h2`
@@ -34,12 +40,25 @@ const H2Input = styled.h2`
     line-height: 38px;
 
     color: #E0E0E0;
+    @media screen and (max-width: 768px){
+		width:100vw;
+        text-align: center;
+        align-items:center;
+        justify-content:center;
+	}
 `;
 
 const DivInput2 = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 2.5vh;
+    @media screen and (max-width: 768px){
+		width:100vw;
+        align-items:center;
+        justify-content:center;
+
+	}
+    
 `;
 
 const DivInput3 = styled.div`
@@ -49,12 +68,11 @@ const DivInput3 = styled.div`
     align-items: center;
     height: 5.557vh;
     width: 19.142vw;
-    // input:focus{
-    //     svg{
-    //         position:relative;
-    //         left:-10vh;
-    //     }
-    // }
+    @media screen and (max-width: 768px){
+		width:85vw;
+        align-items:center;
+        justify-content:center;
+	}
 `;
 
 const DivButton = styled.div`
@@ -68,10 +86,17 @@ const ButtonLogin = styled.button`
     border-radius: 50px;
     height: 6.205vh;
     width: 19.142vw;
+    color:white;
+    @media screen and (max-width: 768px){
+		align-items:center;
+        justify-content:center;
+        width:30vw;
+	}
+    
 `;
 
 const ErrorDiv = styled.span`
-    
+    align-items:center;
     color: red;
 `;
 
@@ -82,8 +107,10 @@ const SignUp = styled.div`
 
 const IconWrapper = styled.div<{isEditing:boolean}>`
     position:relative;
-    left: ${props => props.isEditing ? '-2vw': '1vw'}
-    
+    left: ${props => props.isEditing ? '-2vw': '1vw'};
+    @media screen and (max-width: 768px){
+		left: ${props => props.isEditing ? '-4vw': '2vw'}
+	}
 `;
 
 

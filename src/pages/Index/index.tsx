@@ -13,13 +13,18 @@ const Conteudo = styled.div`
     min-height: 100vh;
     max-height:100%;
     max-width:100vw;
-    
+    @media screen and (max-width: 768px){
+		width:100vw;
+	}
     
 `;
 
 const MainStyled = styled.main`
     height: 100vh;
     max-height:100%;
+    @media screen and (max-width: 768px){
+		width:100vw;
+	}
 `;
 
 const Login = styled.div`
@@ -30,6 +35,14 @@ const Login = styled.div`
     place-content: center;
     place-items: center;
     background: no-repeat linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
+    @media screen and (max-width: 768px){
+        width: 100vw;
+        padding: 4rem 5rem;
+        min-height: 80%;
+        margin: auto 0;
+        // border-radius:10px;
+        // box-shadow: 4px 4px 10px 10px rgba(0, 0, 0, 0.25);
+    }
 `;
 
 const ButtonLogin = styled.button`
@@ -46,6 +59,10 @@ const BackgroundImage = styled.div`
     background-image: url(${BG});
     background-repeat: no-repeat;
     background-size: cover;
+    @media screen and (max-width: 768px){
+        
+		display:none;
+	}
 `;
 
 // const BGDiv = styled.img`
@@ -58,6 +75,9 @@ const LogoBG = styled.img`
     position: relative;
     top:2vh;
     left:20vw;
+    @media screen and (max-width: 768px){
+		display:none;
+	}
 `;
 
 export default function Main() {
