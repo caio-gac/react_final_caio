@@ -70,8 +70,8 @@ const ButtonLogin = styled.button`
     width: 19.142vw;
 `;
 
-const ErrorDiv = styled.div`
-    margin-top: 1px;
+const ErrorDiv = styled.span`
+    
     color: red;
 `;
 
@@ -89,7 +89,6 @@ const IconWrapper = styled.div<{isEditing:boolean}>`
 
 
 export default function InputLogin () {
-
     const [isEditing,setIsEditing] = useState(false);
     function handleFocus() {
         setIsEditing ((isEditing) => !isEditing); 
@@ -98,30 +97,20 @@ export default function InputLogin () {
     const [LoginEmail, setLoginEmail] = useState('') ;
     const [LoginPassword, setLoginPassword] = useState('') ;
     const [errorMessage, setErrorMessage] = React.useState('');
-    // const [user, setUser] = useState({});
-    // const currentUser = useState({});
-    // onAuthStateChanged(auth, (currentUser) => {
-    //     setUser(currentUser);
-    // });
-
-    
-    // const login = async() =>{
-    //     try {
-    //         signInWithEmailAndPassword(auth,LoginEmail,LoginPassword);
-    //         console.log('Loged in');
-    //     } catch (error) {
-    //         console.log(error); 
-    //         setErrorMessage('Email or Password incorrect!');
-    //     }
-    // };
 
     async function loginSubmit(event:any) {
         event?.preventDefault();
         login(LoginEmail,LoginPassword);
-        if (await login(LoginEmail,LoginPassword)) {
-            console.log('certo');
-            window.location.href = '/home';
+        try {
+            if (await login(LoginEmail,LoginPassword)) {
+                console.log('certo');
+                window.location.href = '/home';
+            }    
+        } catch (error:any) {
+            setErrorMessage('Invalid Email / Password');
         }
+        
+
     }
     
 
@@ -138,9 +127,9 @@ export default function InputLogin () {
                     <IconWrapper isEditing={isEditing}> <Pass/></IconWrapper>
                 </DivInput3>
                 
-                {errorMessage && <ErrorDiv className='error'>{errorMessage}</ErrorDiv>}
+                {errorMessage && <ErrorDiv>{errorMessage}</ErrorDiv>}
 
-                <Link to={'/Register'} style={{textDecoration: 'none'}}><SignUp>Create account ?</SignUp></Link>
+                <Link to={'/Register'} style={{textDecoration: 'none'}}><SignUp>Dont have an account ? Signup.</SignUp></Link>
                 <DivButton>
                     <ButtonLogin onClick={loginSubmit}>Continuar</ButtonLogin>
                 </DivButton>

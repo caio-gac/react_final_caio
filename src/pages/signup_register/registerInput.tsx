@@ -4,6 +4,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { register } from 'components/auth';
+import { FirebaseError } from 'firebase/app';
 
 
 const Input = styled.input`
@@ -78,7 +79,7 @@ export default function InputRegister() {
         try {
             await register(registerEmail,registerPassword);
         } catch (error:any) {
-            setMsgError(error.code);
+            setMsgError(error.code.slice(5));
         }
     }
 
@@ -93,7 +94,7 @@ export default function InputRegister() {
                 <DivInput3>
                     <Input required type="password" name="" id="" placeholder='Senha' onChange={(event) =>{setRegisterPassword(event.target.value);}}/>
                 </DivInput3>
-                {msgError && <span>{msgError}</span>}
+                {msgError && <span style={{color: 'red'}}>{msgError}</span>}
                 <DivButton>
                     <ButtonReg onClick={registerSubmit}>Criar User</ButtonReg>
                 </DivButton> 

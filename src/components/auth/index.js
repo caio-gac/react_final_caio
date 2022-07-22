@@ -15,16 +15,11 @@ export const register = async (registerEmail,registerPassword) => {
 };
 
 export const login = async (loginEmail,loginPassword) => {
-    try {
-        const user = await signInWithEmailAndPassword(
-            authValue,
-            loginEmail,
-            loginPassword
-        );
-        return user;
-    } catch (error) {
-        return console.log(error.message);
-    }
+    return signInWithEmailAndPassword(
+        authValue,
+        loginEmail,
+        loginPassword
+    );  
 };
 
 export const logout = async () => {
