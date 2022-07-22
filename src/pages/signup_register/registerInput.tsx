@@ -4,7 +4,9 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { register } from 'components/auth';
-import { FirebaseError } from 'firebase/app';
+import validacao from './validacao';
+
+// import { FirebaseError } from 'firebase/app';
 
 
 const Input = styled.input`
@@ -82,6 +84,24 @@ export default function InputRegister() {
             setMsgError(error.code.slice(5));
         }
     }
+    const inputPass = document.querySelector('#Inp') as HTMLInputElement;
+    const pass = inputPass?.value;
+    function passVal() {
+        if (validacao.LetraMaiuscula(pass)) {
+            console.log('a');
+            if(validacao.LetraMinuscula(pass)){
+                console.log('b');
+                if (validacao.Minimo(pass,6)) {
+                    console.log('c');
+                    if (validacao.Numero(pass)) {
+                        {registerSubmit;}
+                    }else{setMsgError('Password must contain a number');}
+                }else{setMsgError('Password length must be over 6 digits');}
+            }else{setMsgError('Password must contain a lowercase letter');}
+        }else{setMsgError('Password must contain a uppercase letter');}
+        
+    }
+    
 
     return( 
     
@@ -89,14 +109,14 @@ export default function InputRegister() {
             <H2Input>register</H2Input>
             <DivInput2>
                 <DivInput3>
-                    <Input required type="text" placeholder='Usuário' onChange={(event) =>{setRegisterEmail(event.target.value);}} />
+                    <Input required  type="text" placeholder='Usuário' onChange={(event) =>{setRegisterEmail(event.target.value);}} />
                 </DivInput3>
                 <DivInput3>
-                    <Input required type="password" name="" id="" placeholder='Senha' onChange={(event) =>{setRegisterPassword(event.target.value);}}/>
+                    <Input required type="password" name="" id="Inp" placeholder='Senha' onChange={(event) =>{setRegisterPassword(event.target.value);}}/>
                 </DivInput3>
                 {msgError && <span style={{color: 'red'}}>{msgError}</span>}
                 <DivButton>
-                    <ButtonReg onClick={registerSubmit}>Criar User</ButtonReg>
+                    <ButtonReg onClick={passVal}>Criar User</ButtonReg>
                 </DivButton> 
             </DivInput2>
         </DivInput>

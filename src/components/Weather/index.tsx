@@ -52,7 +52,7 @@ export default function Weather() {
 
     async function permissionGeo(position: GeolocationPosition){
         // const [city, setCity] = useState('');
-        const request = await fetch( 'https://api.hgbrasil.com/weather?format=json-cors&lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=545f2b23', {mode: 'cors',
+        const request = await fetch( `https://api.hgbrasil.com/weather?format=json-cors&lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=545f2b23`, {mode: 'cors',
             headers: {'Content-Type': 'Application/Json'}}
         );
         const json = await request.json();
