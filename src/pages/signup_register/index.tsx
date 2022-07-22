@@ -29,6 +29,9 @@ const Reg = styled.div`
     place-content: center;
     place-items: center;
     background: no-repeat linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
+    @media screen and (max-width: 768px){
+		width:100vw;
+	}
 `;
 const TextReg = styled.h1``;
 
@@ -38,6 +41,9 @@ const BackgroundImage = styled.div`
     background-image: url(${BG});
     background-repeat: no-repeat;
     background-size: cover;
+    @media screen and (max-width: 768px){
+		display:none;
+	}
 `;
 // const BGDiv = styled.img`
 //     max-width: 100%;

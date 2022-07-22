@@ -17,7 +17,7 @@ const Content = styled.div`
 
 `;
 const FooterH1 = styled.h1`
-    font-family: 'Mark Pro';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -28,6 +28,11 @@ const FooterH1 = styled.h1`
     margin-left: 354px;
     width: 541px;
     height: 58px;
+    @media screen and (max-width: 768px) {
+        text-align:center;
+        padding: 2rem 1rem;
+        
+      }
 `;
 const FooterDivisao = styled.a`
     left: 35px;
@@ -62,7 +67,7 @@ const FooterButtonLogout = styled.div`
 const FooterButtonH1 = styled.h1`
     margin-top: 30%;
     margin-left: 10%;
-    font-family: 'Mark Pro';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;

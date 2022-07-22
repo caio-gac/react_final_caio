@@ -15,6 +15,9 @@ const Content = styled.div`
     background-size: calc(1rem*30);
     background-repeat: no-repeat;
     min-height: 100vh;
+    @media screen and (max-width:768px){
+        background: none;
+    }
 `;
 
 const HomeTextDiv = styled.div`
@@ -49,7 +52,7 @@ const HeaderDiv = styled.div`
 `;
 
 const HomeH1 = styled.h1`
-    font-family: 'Mark Pro';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 4em;
@@ -62,7 +65,7 @@ const HomeH1 = styled.h1`
 `;
 
 const HomeH2 = styled.h2`
-    font-family: 'Mark Pro';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 2.25em;
@@ -70,10 +73,13 @@ const HomeH2 = styled.h2`
     text-align: right;
 
     color: #C12D18;
+    @media screen and (max-width:767px){
+        font-size: 2em;
+    }
 `;
 
 const HomeH3 = styled.h3`
-    font-family: 'Mark Pro';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 1.5em;
@@ -82,6 +88,10 @@ const HomeH3 = styled.h3`
     width: 100%;
     
     color: #222222;
+
+    @media screen and (max-width:767px){
+        font-size: 2rem;
+    }
 `;
 
 const LogoDiv1 = styled.div`

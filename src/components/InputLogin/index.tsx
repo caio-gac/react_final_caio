@@ -42,9 +42,7 @@ const H2Input = styled.h2`
     color: #E0E0E0;
     @media screen and (max-width: 768px){
 		width:100vw;
-        text-align: center;
-        align-items:center;
-        justify-content:center;
+        margin-left:20vw;
 	}
 `;
 
@@ -90,7 +88,7 @@ const ButtonLogin = styled.button`
     @media screen and (max-width: 768px){
 		align-items:center;
         justify-content:center;
-        width:30vw;
+        width:60vw;
 	}
     
 `;
@@ -103,6 +101,7 @@ const ErrorDiv = styled.span`
 const SignUp = styled.div`
     color: white;
     text-decoration: none;
+    margin-top:3vh;
 `;
 
 const IconWrapper = styled.div<{isEditing:boolean}>`
@@ -156,10 +155,12 @@ export default function InputLogin () {
                 
                 {errorMessage && <ErrorDiv>{errorMessage}</ErrorDiv>}
 
-                <Link to={'/Register'} style={{textDecoration: 'none'}}><SignUp>Dont have an account ? Signup.</SignUp></Link>
+                
                 <DivButton>
                     <ButtonLogin onClick={loginSubmit}>Continuar</ButtonLogin>
+                    <Link to={'/Register'} style={{textDecoration: 'none'}}><SignUp>Dont have an account ? Signup.</SignUp></Link>
                 </DivButton>
+                
             </DivInput2>
         </DivInput>
     );

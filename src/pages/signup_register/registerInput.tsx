@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import { register } from 'components/auth';
 import validacao from './validacao';
+import { Link } from 'react-router-dom';
 
 // import { FirebaseError } from 'firebase/app';
 
@@ -19,6 +20,10 @@ const Input = styled.input`
     text-color: #FFFFFF;
     padding-left: 12px;
     color: white;
+    @media screen and (max-width: 768px){
+        display:block;
+        width: 100vw;
+    }
 `;
 
 const DivInput = styled.div`
@@ -26,6 +31,12 @@ const DivInput = styled.div`
     flex-direction: column;
     row-gap: 2.5vh;
     height: 213px;
+    @media screen and (max-width: 768px){
+        display:block;
+        width: 70vw;
+        align-items:center;
+        justify-content:center;
+    }
 `;
 
 const H2Input = styled.h2`
@@ -34,12 +45,27 @@ const H2Input = styled.h2`
     line-height: 38px;
 
     color: #E0E0E0;
+    @media screen and (max-width: 768px){
+        align-items:center;
+        justify-content:center;
+        width: 50vw;
+        font-size:9vw;
+        margin-left:6vw;
+    }
 `;
 
 const DivInput2 = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 2.5vh;
+    @media screen and (max-width: 768px){
+        
+        
+        padding: 4rem 3rem;
+        min-height: 80%;
+        margin: auto 0;
+
+    }
 `;
 
 const DivInput3 = styled.div`
@@ -49,6 +75,11 @@ const DivInput3 = styled.div`
     align-items: center;
     height: 5.557vh;
     width: 19.142vw;
+    @media screen and (max-width: 768px){
+        align-items:center;
+        justify-content:center;
+        width: 50vw;
+    }
     
 `;
 const ButtonReg = styled.button`
@@ -57,15 +88,34 @@ const ButtonReg = styled.button`
     border-radius: 50px;
     height: 6.205vh;
     width: 19.142vw;
+    @media screen and (max-width: 768px){
+        align-items:center;
+        justify-content:center;
+        width: 50vw;
+    }
 `;
 const DivButton = styled.div`
     margin-top: 10vh;
     margin-bottom: 17vh;
+    align-items:center;
+    justify-content:center;
 `;
 // const Icon = styled.div`
 //     margin-left: 1vh;
 // `;
-
+const LogIn = styled.div`
+    color: white;
+    text-decoration: none;
+    margin-top:3vh;
+    @media screen and (max-width: 768px){
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        width:50vw;
+        
+    }
+    
+`;
 
 
 export default function InputRegister() {
@@ -115,8 +165,10 @@ export default function InputRegister() {
                     <Input required type="password" name="" id="Inp" placeholder='Senha' onChange={(event) =>{setRegisterPassword(event.target.value);}}/>
                 </DivInput3>
                 {msgError && <span style={{color: 'red'}}>{msgError}</span>}
+                
                 <DivButton>
                     <ButtonReg onClick={passVal}>Criar User</ButtonReg>
+                    <Link to={'/'} style={{textDecoration: 'none'}}><LogIn>Ja possui uma conta ? Entre</LogIn></Link>
                 </DivButton> 
             </DivInput2>
         </DivInput>
