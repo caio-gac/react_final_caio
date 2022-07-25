@@ -36,7 +36,7 @@ const Reg = styled.div`
 const TextReg = styled.h1``;
 
 const BackgroundImage = styled.div`
-    height = 100vh;
+    height: 100vh;
     width: 50vw;
     background-image: url(${BG});
     background-repeat: no-repeat;
@@ -66,9 +66,9 @@ export default function Register() {
         <MainStyled>
             <Conteudo>
                 <Reg>
-                    <div>
-                        <TextReg />
-                    </div>
+                    {/* <div>
+                        <TextReg />asd
+                    </div> */}
                     <div>
                         <InputRegister ></InputRegister>
                     </div>

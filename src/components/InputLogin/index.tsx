@@ -15,10 +15,12 @@ const Input = styled.input`
     height: 90%;
     // margin-top: 2.9vh;
     text-color: #FFFFFF;
+    
     padding-left: 12px;
     color:white;
     @media screen and (max-width: 768px){
 		width:60vw;
+        font-size:25px;
 	}
       
 `;
@@ -35,7 +37,7 @@ const DivInput = styled.div`
 `;
 
 const H2Input = styled.h2`
-    font-weight: 400;
+    // font-weight: 400;
     font-size: 30px;
     line-height: 38px;
 
@@ -76,6 +78,10 @@ const DivInput3 = styled.div`
 const DivButton = styled.div`
     margin-top: 10vh;
     margin-bottom: 20vh;
+    
+    @media screen and (max-width: 768px){
+        width:65vw;
+    }
 `;
 
 const ButtonLogin = styled.button`
@@ -89,18 +95,22 @@ const ButtonLogin = styled.button`
 		align-items:center;
         justify-content:center;
         width:60vw;
+        margin-left:auto;
+        margin-right:auto;
 	}
     
 `;
 
 const ErrorDiv = styled.span`
     align-items:center;
-    color: red;
+    color: yellow;
 `;
 
 const SignUp = styled.div`
     color: white;
     text-decoration: none;
+    text-weight: 10;
+    font-size: 12px;
     margin-top:3vh;
 `;
 
@@ -108,7 +118,7 @@ const IconWrapper = styled.div<{isEditing:boolean}>`
     position:relative;
     left: ${props => props.isEditing ? '-2vw': '1vw'};
     @media screen and (max-width: 768px){
-		left: ${props => props.isEditing ? '-4vw': '2vw'}
+		left: ${props => props.isEditing ? '-10vw': '2vw'}
 	}
 `;
 
@@ -134,6 +144,7 @@ export default function InputLogin () {
             }    
         } catch (error:any) {
             setErrorMessage('Invalid Email / Password');
+            
         }
         
 
@@ -153,12 +164,12 @@ export default function InputLogin () {
                     <IconWrapper isEditing={isEditing}> <Pass/></IconWrapper>
                 </DivInput3>
                 
-                {errorMessage && <ErrorDiv>{errorMessage}</ErrorDiv>}
+                {errorMessage && <ErrorDiv style={{color:'yellow'}}>{errorMessage}</ErrorDiv>}
 
                 
                 <DivButton>
                     <ButtonLogin onClick={loginSubmit}>Continuar</ButtonLogin>
-                    <Link to={'/Register'} style={{textDecoration: 'none'}}><SignUp>Dont have an account ? Signup.</SignUp></Link>
+                    <Link to={'/Register'} style={{textDecoration: 'none'}}><SignUp>Não possui cadastro ? Cadastre-se agora.</SignUp></Link>
                 </DivButton>
                 
             </DivInput2>

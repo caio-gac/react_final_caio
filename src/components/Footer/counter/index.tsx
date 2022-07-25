@@ -15,6 +15,16 @@ const RefreshContainer = styled.div`
     line-height: 18px;
     text-align: right;
     color: #FFFFFF;
+    @media screen and (max-width:767px){
+      height:7vh;
+      width:40vw;
+    }
+  }
+  @media screen and (max-width:767px){
+    height:50%;
+    width:100vw;
+    flex-direction:row;
+    margin-top:1vh;
   }
 `;
 
@@ -29,6 +39,11 @@ const Timer = styled.div`
     line-height: 61px;
     text-align: center;
     color: #FFFFFF;
+    @media screen and (max-width:767px){
+      height:7vh;
+      width:30vw;
+      font-size:7vh;
+    }
   }
   span {
     font-style: normal;
@@ -37,7 +52,17 @@ const Timer = styled.div`
     line-height: 18px;
     text-align: right;
     color: #FFFFFF;
+    @media screen and (max-width:767px){
+      height:7vh;
+      width:20vw;
+      font-size:3vh;
+      margin-left:5vw;
+    }
   }
+  // @media screen and (max-width:767px){
+  //   flex-direction: row;
+  // }
+  
 `;
 
 export default function Counter(){

@@ -4,12 +4,11 @@ const TextH1 = styled.h1`
     font-weight: 400;
     font-size: 60px;
     line-height: 76px;
-    font-family: 'Roboto';
-
     color: #E0E0E0;
     width: 118px;
     @media screen and (max-width: 768px){
 	    width:30vw;
+        
 	}
 `;
 
@@ -17,7 +16,7 @@ const TextH3 = styled.h3`
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
-    font-family: 'Mark Pro';
+    
 
     color: #E0E0E0;
     @media screen and (max-width: 768px){

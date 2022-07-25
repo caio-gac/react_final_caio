@@ -9,7 +9,9 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    max-height:100vh;
+    heigth: 100%;
+    width:100%;
     background-image:url(${Bola});
     background-position: left bottom;
     background-size: calc(1rem*30);
@@ -17,22 +19,8 @@ const Content = styled.div`
     min-height: 100vh;
     @media screen and (max-width:768px){
         background: none;
+     
     }
-`;
-
-const HomeTextDiv = styled.div`
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items:end;
-    width:100%;
-    flex-grow:1;
-    // margin-top: 3vh;
-    // margin-right: -10vw;
-    margin: 1rem;
-    
-    padding-right:10vh;
-    
 `;
 
 const ClockDiv = styled.div`
@@ -48,49 +36,77 @@ const WeatherDiv = styled.div`
 const HeaderDiv = styled.div`
     display:flex;
     justify-content: space-between;
+    max-width:100%;
     padding: 1.5rem 2.5rem;
+    @media screen and (max-width:767px){
+        flex-direction:column;
+        heigth:10vh;
+    }
+`;
+
+const HomeTextDiv = styled.div`
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:end;
+    width:100%;
+    flex-grow:1;
+    height:10px;
+    margin-top: 3vh;
+    // margin-right: -10vw;
+    // margin: 1rem;
+    
+    padding-right:10vh;
+    @media screen and (max-width:767px){
+        flex-direction:column;
+        heigth:30vh;
+        margin-top:-40vh;
+        // margin:0;
+        // padding-right:10vw;
+    }
+    
 `;
 
 const HomeH1 = styled.h1`
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 4em;
     line-height: 81px;
     text-align: right;
-
-    /* Primária */
-
     color: #C12D18;
+    @media screen and (max-width:767px){
+        font-size: 1vh;
+        line-height:3vh;
+    }
 `;
 
 const HomeH2 = styled.h2`
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 2.25em;
     line-height: 46px;
     text-align: right;
-
     color: #C12D18;
     @media screen and (max-width:767px){
-        font-size: 2em;
+        font-size: 1vh;
+        line-height:3vh;
     }
 `;
 
 const HomeH3 = styled.h3`
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 1.5em;
     line-height: 30px;
     text-align: right;
     width: 100%;
-    
     color: #222222;
-
     @media screen and (max-width:767px){
-        font-size: 2rem;
+        font-size: 1vh;
+        line-height:3vh;
     }
 `;
 
@@ -98,6 +114,9 @@ const LogoDiv1 = styled.div`
     float: left;
     margin-top: 2vh;
     margin-left: 2vw;
+    @media screen and (max-width:767px){
+        margin-left: 15vw;
+    }
 `;
 
 export default function Home() {

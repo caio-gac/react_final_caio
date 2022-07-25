@@ -49,7 +49,7 @@ const H2Input = styled.h2`
         align-items:center;
         justify-content:center;
         width: 50vw;
-        font-size:9vw;
+        font-size:15vw;
         margin-left:6vw;
     }
 `;
@@ -59,9 +59,7 @@ const DivInput2 = styled.div`
     flex-direction: column;
     row-gap: 2.5vh;
     @media screen and (max-width: 768px){
-        
-        
-        padding: 4rem 3rem;
+        padding: 5vh 4vh;
         min-height: 80%;
         margin: auto 0;
 
@@ -117,11 +115,115 @@ const LogIn = styled.div`
     
 `;
 
+const ErrorDiv = styled.div` 
+
+`;
+const Error1H1 = styled.h1`
+    
+`;
+const Error2H1 = styled.h1`
+    
+`;
+const Error3H1 = styled.h1`
+    
+`;
+const Error4H1 = styled.h1`
+    
+`;
+
+
+
+
 
 export default function InputRegister() {
+    const [ValNum, setValNum] = useState(false);
+    const [ValMin, setValMin] = useState(false);
+    const [ValMax, setValMax] = useState(false);
+    const [ValLen, setValLen] = useState(false);
+    
+
+
+    function validateForm(){
+        if(validateEmail()
+          && ValNum
+          && ValMin
+          && ValMax
+          && ValLen
+        ){
+            registerSubmit;
+        }       
+    }
+
+    function showValidation(pass:any){
+        if( vNum(pass)
+        
+        ){
+            console.log('mostrar');
+            setValNum(true);
+            // setShowVal({pass: false});   
+        }console.log('Não');
+
+        if( vMin(pass)
+
+        ){
+            console.log('mostrar');
+            setValMin(true);
+            // setShowVal({pass: false});   
+        }console.log('Não');
+
+        if( vMax(pass)
+        
+        ){
+            console.log('mostrar');
+            setValMax(true);
+            // setShowVal({pass: false});   
+        }console.log('Não');
+
+        if( vLen(pass)
+        
+        ){
+            console.log('mostrar');
+            setValLen(true);
+            // setShowVal({pass: false});   
+        }console.log('Não');
+
+        if (pass == ''
+
+        ){
+            setValNum(false);
+            setValMin(false);
+            setValMax(false);
+            setValLen(false);
+        }
+        
+    }
+
+    
+
+    function validateEmail(){
+        return /(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+    }
+
+    function vMin(pass:any) {
+        return /[a-z]/.test(pass);
+    }
+    function vMax(pass:any) {
+        return /[A-Z]/.test(pass);
+    }
+    function vNum(pass:any) {
+        return /[0-9]/.test(pass);
+    }
+    function vLen(pass:any) {
+        return /^[a-zA-Z0-9]{6,}$/.test(pass);
+    }
+    
+
+
     const [registerEmail, setRegisterEmail] = useState('') ;
     const [registerPassword, setRegisterPassword] = useState('') ;
     const [msgError, setMsgError] = useState('');
+    // const [showVal, setShowVal] = useState({pass: false});
+
     async function registerSubmit(event:any) {
         event?.preventDefault();
         // if (await register(registerEmail,registerPassword)) {
@@ -134,23 +236,44 @@ export default function InputRegister() {
             setMsgError(error.code.slice(5));
         }
     }
+    const inputEmail = document.querySelector('#Email') as HTMLInputElement;
+    const email = inputEmail?.value;
     const inputPass = document.querySelector('#Inp') as HTMLInputElement;
     const pass = inputPass?.value;
-    function passVal() {
-        if (validacao.LetraMaiuscula(pass)) {
-            console.log('a');
-            if(validacao.LetraMinuscula(pass)){
-                console.log('b');
-                if (validacao.Minimo(pass,6)) {
-                    console.log('c');
-                    if (validacao.Numero(pass)) {
-                        {registerSubmit;}
-                    }else{setMsgError('Password must contain a number');}
-                }else{setMsgError('Password length must be over 6 digits');}
-            }else{setMsgError('Password must contain a lowercase letter');}
-        }else{setMsgError('Password must contain a uppercase letter');}
+    // function passVal() {
+       
+    //     if (validacao.Vazio(email )) {
+    //         // let a = Error1H1;
+            
+    //         if (validacao.LetraMaiuscula(pass)) {
+    //             console.log('b');
+                
+    //         }
+    //         if(validacao.LetraMinuscula(pass)){
+    //             console.log('c');
+    //         }
+    //         if (!validacao.Minimo(pass,6)) {
+    //             console.log('d');
+    //         }
+    //         if (validacao.Numero(pass)) {
+    //         // {registerSubmit;}
+    //             console.log('e');
+    //         }
+    //         if (validacao.Vazio(pass )) {
+    //             console.log('f');
+    //             registerSubmit;
+    //         }
+    //         // {setMsgError('Password must contain a number');}
+    //         // {setMsgError('Password length must be over 6 digits');}
+    //         // {setMsgError('Password must contain a lowercase letter');}
+    //         // {setMsgError('Password must contain a uppercase letter');}
+    //         // {setMsgError('Password is empty ');}
         
-    }
+    //         // if (V == validacao.Vazio(email )) {
+            
+    //     // }
+    //     }
+    // }
     
 
     return( 
@@ -159,15 +282,22 @@ export default function InputRegister() {
             <H2Input>register</H2Input>
             <DivInput2>
                 <DivInput3>
-                    <Input required  type="text" placeholder='Usuário' onChange={(event) =>{setRegisterEmail(event.target.value);}} />
+                    <Input required id="Email"  type="text" placeholder='Usuário' onChange={(event) =>{setRegisterEmail(event.target.value);}} />
                 </DivInput3>
                 <DivInput3>
-                    <Input required type="password" name="" id="Inp" placeholder='Senha' onChange={(event) =>{setRegisterPassword(event.target.value);}}/>
+                    <Input required type="password" name="" id="Inp" placeholder='Senha' onChange={(event) =>{showValidation(event.target.value);}}/>
                 </DivInput3>
                 {msgError && <span style={{color: 'red'}}>{msgError}</span>}
                 
+                <ErrorDiv>
+                    <Error1H1 style={{color: ValLen ? 'green' : 'red'}}>Password length must be over 6 digits</Error1H1>
+                    <Error2H1 style={{color: ValMin ? 'green' : 'red'}}>Password must contain a lowercase letter</Error2H1>
+                    <Error3H1 style={{color: ValMax ? 'green' : 'red'}}>Password must contain a uppercase letter</Error3H1>
+                    <Error4H1 style={{color: ValNum ? 'green' : 'red'}}>Password must contain a number</Error4H1>
+                    
+                </ErrorDiv>
                 <DivButton>
-                    <ButtonReg onClick={passVal}>Criar User</ButtonReg>
+                    <ButtonReg onClick={validateForm}>Criar User</ButtonReg>
                     <Link to={'/'} style={{textDecoration: 'none'}}><LogIn>Ja possui uma conta ? Entre</LogIn></Link>
                 </DivButton> 
             </DivInput2>

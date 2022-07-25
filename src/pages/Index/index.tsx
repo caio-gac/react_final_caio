@@ -22,6 +22,7 @@ const Conteudo = styled.div`
 const MainStyled = styled.main`
     height: 100vh;
     max-height:100%;
+    overflow:hidden;
     @media screen and (max-width: 768px){
 		width:100vw;
 	}
@@ -45,13 +46,13 @@ const Login = styled.div`
     }
 `;
 
-// const ButtonLogin = styled.button`
-//     background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
-//     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
-//     border-radius: 50px;
-//     height: 6.205vh;
-//     width: 19.142vw;
-// `;
+const ButtonLogin = styled.button`
+    background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
+    box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+    height: 6.205vh;
+    width: 19.142vw;
+`;
 
 const BackgroundImage = styled.div`
     height = 100vh;

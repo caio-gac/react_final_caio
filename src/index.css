@@ -50,10 +50,12 @@ body, html {
     /* overflow: hidden; */
     width:100%;
   /* background: no-repeat linear-gradient(180deg, #33383D 0%, #1C1D20 100%); */
+    
 }
 
 *{
   box-sizing: border-box;
-  font-family: 'Roboto';
+  font-family:  'Courier New', monospace;
 }
+
 
