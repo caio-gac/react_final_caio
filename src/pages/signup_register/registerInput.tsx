@@ -4,7 +4,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { register } from 'components/auth';
-import validacao from './validacao';
+
 import { Link } from 'react-router-dom';
 
 // import { FirebaseError } from 'firebase/app';
@@ -150,7 +150,7 @@ export default function InputRegister() {
           && ValMax
           && ValLen
         ){
-            registerSubmit;
+            registerSubmit(setRegisterPassword);
         }       
     }
 
@@ -285,7 +285,7 @@ export default function InputRegister() {
                     <Input required id="Email"  type="text" placeholder='Usuário' onChange={(event) =>{setRegisterEmail(event.target.value);}} />
                 </DivInput3>
                 <DivInput3>
-                    <Input required type="password" name="" id="Inp" placeholder='Senha' onChange={(event) =>{showValidation(event.target.value);}}/>
+                    <Input required type="password" name="" id="Inp" placeholder='Senha' onChange={(event) =>{showValidation(event.target.value);setRegisterPassword(event.target.value);}}/>
                 </DivInput3>
                 {msgError && <span style={{color: 'red'}}>{msgError}</span>}
                 

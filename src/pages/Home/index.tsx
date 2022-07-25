@@ -25,7 +25,16 @@ const Content = styled.div`
 
 const ClockDiv = styled.div`
     
-    margin-right: 1vh;
+    margin-right: 25vw;
+    @media screen and (max-width:768px){
+        margin-right:20vw;
+        margin-top:2.7vh;
+    }
+`;
+
+const CWDiv = styled.div`
+    display:flex;
+    justify-content: space-between;
 `;
 
 const WeatherDiv = styled.div`
@@ -59,24 +68,26 @@ const HomeTextDiv = styled.div`
     padding-right:10vh;
     @media screen and (max-width:767px){
         flex-direction:column;
+        justify-content:justify;
         heigth:30vh;
         margin-top:-40vh;
         // margin:0;
-        // padding-right:10vw;
+        padding-right:5vw;
     }
     
 `;
 
 const HomeH1 = styled.h1`
     
-    font-style: normal;
+    // font-style: normal;
     font-weight: 700;
     font-size: 4em;
     line-height: 81px;
     text-align: right;
     color: #C12D18;
+    width:100%;
     @media screen and (max-width:767px){
-        font-size: 1vh;
+        font-size: 4.27vh;
         line-height:3vh;
     }
 `;
@@ -90,7 +101,7 @@ const HomeH2 = styled.h2`
     text-align: right;
     color: #C12D18;
     @media screen and (max-width:767px){
-        font-size: 1vh;
+        font-size: 3.6vh;
         line-height:3vh;
     }
 `;
@@ -105,7 +116,7 @@ const HomeH3 = styled.h3`
     width: 100%;
     color: #222222;
     @media screen and (max-width:767px){
-        font-size: 1vh;
+        font-size: 2vh;
         line-height:3vh;
     }
 `;
@@ -125,12 +136,15 @@ export default function Home() {
             <Content>
                 <HeaderDiv>
                     <LogoDiv1><img src={Logo} alt="" /></LogoDiv1>
-                    <ClockDiv>
-                        <Clock />
-                    </ClockDiv>
-                    <WeatherDiv>
-                        <Weather/>
-                    </WeatherDiv>
+                    <CWDiv>
+                        <ClockDiv>
+                            <Clock />
+                        </ClockDiv>
+                        <WeatherDiv>
+                            <Weather/>
+                        </WeatherDiv>
+                    </CWDiv>
+                    
                 </HeaderDiv>
 
                 <HomeTextDiv>

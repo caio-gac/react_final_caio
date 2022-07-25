@@ -36,7 +36,7 @@ line-height: 18px;
     // width:10vw;
     // height:1vh;
     font-size:2vh;
-    line-height:3vh;
+    line-height:2vh;
     
 }
 `;

@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 const WeatherLocation = styled.span`
     font-weight: 500;
+    .h2{
+        width:30vw;
+    }
 `;
 
 const WeatherDiv = styled.div`
@@ -23,6 +26,9 @@ const WeatherContainer = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 10px;
+    @media screen and (max-width:767px){
+        width:40vw;
+    }
 `;
 
 const WeatherDivSpan = styled.span`

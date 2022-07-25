@@ -18,13 +18,14 @@ const RefreshContainer = styled.div`
     @media screen and (max-width:767px){
       height:7vh;
       width:40vw;
+      margin-left:-20vw;
     }
   }
   @media screen and (max-width:767px){
     height:50%;
     width:100vw;
     flex-direction:row;
-    margin-top:1vh;
+    margin-top:0.5vh;
   }
 `;
 
@@ -40,9 +41,10 @@ const Timer = styled.div`
     text-align: center;
     color: #FFFFFF;
     @media screen and (max-width:767px){
-      height:7vh;
+      height:3vh;
       width:30vw;
-      font-size:7vh;
+      font-size:5vh;
+      margin-bottom:3.2vh;
     }
   }
   span {
@@ -53,10 +55,11 @@ const Timer = styled.div`
     text-align: right;
     color: #FFFFFF;
     @media screen and (max-width:767px){
-      height:7vh;
+      height:5vh;
       width:20vw;
-      font-size:3vh;
-      margin-left:5vw;
+      font-size:2vh;
+      margin-left:1.2vw;
+      margin-top:0.5vh;
     }
   }
   // @media screen and (max-width:767px){

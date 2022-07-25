@@ -112,6 +112,7 @@ const SignUp = styled.div`
     text-weight: 10;
     font-size: 12px;
     margin-top:3vh;
+    
 `;
 
 const IconWrapper = styled.div<{isEditing:boolean}>`

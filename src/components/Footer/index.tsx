@@ -17,7 +17,7 @@ const Content = styled.div`
     background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
     @media screen and (max-width: 768px) {
     //    position: fixed;
-        height:33vh;
+        height:36vh;
         flex-direction:column;
         overflow:hidden;
       }
@@ -34,13 +34,13 @@ const FooterH1 = styled.h1`
     height: 58px;
     @media screen and (max-width: 768px) {
         font-size: 1.969vh;
-        line-height: 2vh;
+        line-height: 2.2vh;
         text-align: justify;
-        margin-left: -10vw;
-        width: 100vw;
+        margin-left: -5vw;
+        margin-top:1vh;
+        width: 91vw;
         padding: 2vh 1vh;
-        
-        
+  
       }
 `;
 const FooterDivisao = styled.a`
@@ -56,9 +56,11 @@ const FooterCounter = styled.div`
     flex-direction: row;
     height:100%;
     width:109px;
+    margin-left:10vw;
     @media screen and (max-width:767px){
         height:50%;
         width:20px;
+        margin-top:0.6vh;
     }
 `;
 const FooterButtonDiv = styled.div`
@@ -101,18 +103,20 @@ const FooterButtonLogout = styled.div`
 const FooterButtonH1 = styled.h1`
     margin-top: 30%;
     margin-left: 10%;
-    // font-style: normal;
+    font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
     text-align: center;
+    text-decoration: none;
     color: #C13216;
     @media screen and (max-width:768px){
         // width:30px;
         font-size: 3vh;
         line-height: 2vh;
-        margin-top:2vh;
+        margin-top:2.6vh;
         margin-left: 0vw;
+        
       }
 `;
 const FooterButtonH2 = styled.h2`
@@ -127,7 +131,7 @@ const FooterButtonH2 = styled.h2`
     color: #FFFFFF;
     @media screen and (max-width:768px){
         // width:30px;
-        margin-top:2vh;
+        margin-top:2.6vh;
         margin-left: 42vw;
         font-size: 3vh;
       }
@@ -167,8 +171,8 @@ export default function Footer () {
 
             <FooterButtonDiv>
                 <FooterButtonContinue >
-                    <a target="_blank" href='https://google.com' rel="noreferrer">
-                        <FooterButtonH1 >Continuar Navegando</FooterButtonH1>
+                    <a style={{textDecoration:'none'}} target="_blank" href='https://google.com' rel="noreferrer">
+                        <FooterButtonH1 style={{textDecoration:'none'}}>Continuar Navegando</FooterButtonH1>
                     </a>
                 </FooterButtonContinue>
                 <FooterButtonLogout>
