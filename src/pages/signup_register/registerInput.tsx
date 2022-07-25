@@ -3,9 +3,9 @@
 // import {ReactComponent as Pass} from 'assets/icon-password.svg';
 import styled from 'styled-components';
 import { useState } from 'react';
-import { register } from 'components/auth';
+import { logout, register } from 'components/auth';
 
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 // import { FirebaseError } from 'firebase/app';
 
@@ -140,17 +140,20 @@ export default function InputRegister() {
     const [ValMin, setValMin] = useState(false);
     const [ValMax, setValMax] = useState(false);
     const [ValLen, setValLen] = useState(false);
-    
+    const navigate = useNavigate();
 
 
-    function validateForm(){
+    function validateForm(registerEmail:any,registerPassword:any){
         if(validateEmail()
           && ValNum
           && ValMin
           && ValMax
           && ValLen
         ){
-            registerSubmit(setRegisterPassword);
+            register(registerEmail,registerPassword);
+            alert('Cadastro realizado com sucesso');
+            navigate('/');
+            logout();
         }       
     }
 
@@ -224,14 +227,15 @@ export default function InputRegister() {
     const [msgError, setMsgError] = useState('');
     // const [showVal, setShowVal] = useState({pass: false});
 
-    async function registerSubmit(event:any) {
-        event?.preventDefault();
+    async function registerSubmit(registerEmail:any,registerPassword:any) {
+        // event?.preventDefault();
         // if (await register(registerEmail,registerPassword)) {
         //     console.log('certo');
         //     window.location.href = '/home';
         // }
         try {
-            await register(registerEmail,registerPassword);
+            validateForm(registerEmail,registerPassword);
+            
         } catch (error:any) {
             setMsgError(error.code.slice(5));
         }
@@ -297,7 +301,7 @@ export default function InputRegister() {
                     
                 </ErrorDiv>
                 <DivButton>
-                    <ButtonReg onClick={validateForm}>Criar User</ButtonReg>
+                    <ButtonReg onClick={() => registerSubmit(registerEmail,registerPassword)}>Criar User</ButtonReg>
                     <Link to={'/'} style={{textDecoration: 'none'}}><LogIn>Ja possui uma conta ? Entre</LogIn></Link>
                 </DivButton> 
             </DivInput2>

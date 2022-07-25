@@ -27,19 +27,20 @@ const ClockDiv = styled.div`
     
     margin-right: 25vw;
     @media screen and (max-width:768px){
-        margin-right:20vw;
+        // margin-right:25vw;
         margin-top:2.7vh;
     }
 `;
 
 const CWDiv = styled.div`
     display:flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    justify-content: space-evenly;
 `;
 
 const WeatherDiv = styled.div`
     
-    margin-right: 1vh;
+    margin-right: -4vh;
 `;
 
 const HeaderDiv = styled.div`
